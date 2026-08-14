@@ -1,5 +1,10 @@
 # DSH Action Parity
 
+[![CI](https://github.com/dongsheng123132/dsh-action-parity/actions/workflows/ci.yml/badge.svg)](https://github.com/dongsheng123132/dsh-action-parity/actions/workflows/ci.yml)
+[![MIT license](https://img.shields.io/github/license/dongsheng123132/dsh-action-parity)](LICENSE)
+[![Node.js 22+](https://img.shields.io/badge/Node.js-%E2%89%A522-339933?logo=nodedotjs&logoColor=white)](package.json)
+[![Awesome DSH Plugins](https://img.shields.io/badge/Awesome_DSH-verified_lab-0969da)](https://github.com/dongsheng123132/awesome-dsh-plugins#2origin-plugin-lab)
+
 Evidence that a business action is implemented once and reached consistently from CLI, MCP and GUI surfaces in [DeepSeek Harness](https://github.com/deepseek-ai/DeepSeek-Harness).
 
 This plugin does not execute business actions and does not test buttons by pixels. It verifies a manifest of stable Action IDs, content-addressed action-core and binding declarations, and structural replay observations produced by each interface.
