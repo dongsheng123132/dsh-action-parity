@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "system": { "name": "inventory-example", "revision": "git:abc123" },
+  "requiredSurfaces": ["cli", "mcp", "gui"],
+  "actions": [
+    {
+      "actionId": "inventory.item.update",
+      "kind": "mutation",
+      "confirmation": "required",
+      "core": { "path": "core/inventory-core.mjs", "sha256": "50bde081b86595f50e2f3ac32f0464e4b1f4c79319fb9b1cd81058828f6ae396", "export": "updateItem" },
+      "bindings": [
+        { "surface": "cli", "bindingId": "cli:inventory.item.update", "coreActionId": "inventory.item.update", "path": "bindings/cli.json", "sha256": "f42cfa9f47349780a308931a66243503749e9f43ae06425710ac8d91f7264b49" },
+        { "surface": "mcp", "bindingId": "mcp:inventory.item.update", "coreActionId": "inventory.item.update", "path": "bindings/mcp.json", "sha256": "ad419756cc88986789127a0674b3ba1bc82651ee5c94571b4cce574d7351ebf6" },
+        { "surface": "gui", "bindingId": "data-action-id:inventory.item.update", "coreActionId": "inventory.item.update", "path": "bindings/gui.html", "sha256": "4d788baf35f8943cc4f882134b7a2e2f1b75c9b1ba908041d8e194ab076475df" }
+      ],
+      "cases": [
+        { "id": "success", "kind": "success", "fixture": { "path": "fixtures/success.json", "sha256": "aa3e42b7a48c456076d6d463c1aca91dab330a166d72606699fdafce74e0e135" }, "expected": { "resultSha256": "112e23b8a4f66c26c2f2716df2f7315e7575c7ba0ba6d22b22e25a10e88d416e", "success": true, "stateVersionBefore": "7", "stateVersionAfter": "8", "conflictCode": null } },
+        { "id": "stale", "kind": "stale-conflict", "fixture": { "path": "fixtures/stale.json", "sha256": "eb28f117ce9bf51c1767ad27fa9b34609679e80fff40392e9a350cbd5c2a0ab1" }, "expected": { "resultSha256": "da420332a9c2c4d1ddbbf4fb86e1a2ca09d4b326b265dfd85ddaa76984697897", "success": false, "stateVersionBefore": "8", "stateVersionAfter": "8", "conflictCode": "STALE_STATE" } }
+      ]
+    }
+  ]
+}

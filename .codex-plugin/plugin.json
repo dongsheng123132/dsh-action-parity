@@ -1,0 +1,15 @@
+{
+  "name": "dsh-action-parity",
+  "version": "0.1.0",
+  "description": "Evidence that CLI, MCP and GUI bindings reach the same action core",
+  "author": { "name": "hfshfg" },
+  "interface": {
+    "displayName": "DSH Action Parity",
+    "shortDescription": "Verify one action core across every interface.",
+    "longDescription": "Checks stable Action IDs, content-addressed core and binding declarations, deterministic replay observations, optimistic state versions, conflict behavior and confirmation parity across CLI, MCP and GUI surfaces.",
+    "developerName": "hfshfg",
+    "category": "Developer Tools",
+    "capabilities": ["Action binding verification", "Cross-surface replay parity", "State conflict evidence"],
+    "defaultPrompt": "Verify this action parity manifest and replay evidence without executing business actions."
+  }
+}
