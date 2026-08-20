@@ -4,7 +4,7 @@ import { cp, mkdtemp, readFile, symlink, unlink, writeFile } from 'node:fs/promi
 import os from 'node:os'
 import path from 'node:path'
 import test from 'node:test'
-import { ActionParityError, inspectActionParity, verifyActionParity } from '../lib/action-parity.mjs'
+import { ActionParityError, inspectActionParity, inspectActionParityManifestJson, verifyActionParity, verifyActionParityObservationsJsonl } from '../lib/action-parity.mjs'
 
 const hash = (value) => createHash('sha256').update(value).digest('hex')
 
@@ -31,6 +31,7 @@ test('verifies cross-surface success and stale conflict into a content-addressed
   assert.equal(result.cases.every(({ status }) => status === 'verified'), true)
   assert.match(result.artifact.path, /^artifacts\/action-parity-[a-f0-9]{64}\.json$/)
   assert.equal(hash(await readFile(path.join(root, result.artifact.path))), result.artifact.sha256)
+  assert.equal(result.artifact.verifiedByReadBack, true)
 })
 
 test('discloses cross-surface result divergence and missing confirmation', async () => {
@@ -85,4 +86,17 @@ test('rejects traversal and symlink evidence paths', async () => {
   } catch (error) {
     if (error.code !== 'EPERM') throw error
   }
+})
+
+test('inline proof validates parity observations without filesystem access', async () => {
+  const root = await fixture()
+  const manifestJson = await readFile(path.join(root, 'action-parity.manifest.json'), 'utf8')
+  const observationsJsonl = await readFile(path.join(root, 'observations.jsonl'), 'utf8')
+  const inspect = inspectActionParityManifestJson(manifestJson)
+  assert.equal(inspect.filesystemAccess, false)
+  assert.equal(inspect.actions[0].actionId, 'inventory.item.update')
+  const result = verifyActionParityObservationsJsonl(manifestJson, observationsJsonl)
+  assert.equal(result.status, 'structurally-verified')
+  assert.equal(result.declarationContentVerification, 'not-performed')
+  assert.equal(result.observationCount, 6)
 })

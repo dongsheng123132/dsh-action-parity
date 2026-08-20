@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict'
-import { createDefinitions } from '../index.js'
+import * as plugin from '../index.js'
 
-const definitions = createDefinitions({}, { workspaceRoot: process.cwd() })
+assert.equal('default' in plugin, false)
+assert.equal(plugin.name, 'dsh-action-parity')
+assert.deepEqual(plugin.inject, ['tools'])
+const definitions = plugin.createDefinitions({}, { workspaceRoot: process.cwd() })
 assert.deepEqual(definitions.map(({ name }) => name), ['dsh_action_parity_inspect', 'dsh_action_parity_verify'])
-process.stdout.write(`${JSON.stringify({ ok: true, tools: definitions.map(({ name }) => name) })}\n`)
+process.stdout.write(`${JSON.stringify({ ok: true, namespaceLoaderSafe: true, tools: definitions.map(({ name }) => name) })}\n`)

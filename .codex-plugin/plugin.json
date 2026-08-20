@@ -1,15 +1,20 @@
 {
   "name": "dsh-action-parity",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Evidence that CLI, MCP and GUI bindings reach the same action core",
-  "author": { "name": "hfshfg" },
+  "author": { "name": "2Origin", "url": "https://github.com/dongsheng123132" },
+  "homepage": "https://github.com/dongsheng123132/dsh-action-parity#readme",
+  "repository": "https://github.com/dongsheng123132/dsh-action-parity",
+  "license": "MIT",
+  "keywords": ["deepseek-harness", "action-parity", "mcp", "cli", "gui", "evidence"],
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "DSH Action Parity",
     "shortDescription": "Verify one action core across every interface.",
     "longDescription": "Checks stable Action IDs, content-addressed core and binding declarations, deterministic replay observations, optimistic state versions, conflict behavior and confirmation parity across CLI, MCP and GUI surfaces.",
     "developerName": "hfshfg",
     "category": "Developer Tools",
-    "capabilities": ["Action binding verification", "Cross-surface replay parity", "State conflict evidence"],
-    "defaultPrompt": "Verify this action parity manifest and replay evidence without executing business actions."
+    "capabilities": ["Read", "Write", "Audit"],
+    "defaultPrompt": ["Verify this action-parity manifest and replay evidence without executing business actions."]
   }
 }
