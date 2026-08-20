@@ -29,7 +29,7 @@ dsh plugin --profile web add github:dongsheng123132/dsh-action-parity
 
 The bundle registers `dsh_action_parity_inspect` and `dsh_action_parity_verify`.
 
-The package deliberately exposes only namespace exports. This keeps it loadable by the stock DSH Web profile while preserving the same shared, interface-free verification core for DSH tools, CLI and MCP.
+The package deliberately exposes only namespace exports and declares standard ToolDefinition objects without bundling a second DSH runtime. This keeps it loadable by the stock DSH Web profile while preserving the same shared, interface-free verification core for DSH tools, CLI and MCP.
 
 ## CLI
 

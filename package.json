@@ -9,7 +9,6 @@
   "bin": { "dsh-action-parity": "./bin/dsh-action-parity.mjs" },
   "files": [".codex-plugin/", ".mcp.json", "bin/", "cordis.patch.yml", "examples/", "index.js", "lib/", "mcp-server.mjs", "LICENSE", "README.md", "README.zh-CN.md", "SECURITY.md"],
   "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
-  "dependencies": { "@deepseek-ai/dsh-tools": "0.0.1-rc.1" },
   "scripts": {
     "test": "node --test test/*.test.mjs",
     "check": "node scripts/check.mjs",

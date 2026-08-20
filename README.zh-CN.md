@@ -14,7 +14,7 @@ dsh plugin --profile web add github:dongsheng123132/dsh-action-parity
 dsh-action-parity verify --workspace-root examples/basic --manifest action-parity.manifest.json --observations observations.jsonl --artifact-dir artifacts
 ```
 
-输入路径和输出目录必须位于 `workspaceRoot` 内，拒绝符号链接；报告不含秘密、原始输入输出、argv、stdout 或 stderr。插件注册 `dsh_action_parity_inspect` 与 `dsh_action_parity_verify`，包入口只暴露命名空间导出，因此能被 stock DSH Web profile 正常装载。
+输入路径和输出目录必须位于 `workspaceRoot` 内，拒绝符号链接；报告不含秘密、原始输入输出、argv、stdout 或 stderr。插件注册 `dsh_action_parity_inspect` 与 `dsh_action_parity_verify`，包入口只暴露命名空间导出，并直接声明标准 ToolDefinition 而不捆绑第二套 DSH 运行时，因此能被 stock DSH Web profile 正常装载。
 
 ## Codex 与只读证据 MCP
 
