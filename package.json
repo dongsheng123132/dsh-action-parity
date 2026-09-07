@@ -1,14 +1,45 @@
 {
   "name": "dsh-action-parity",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Evidence that CLI, MCP and GUI bindings reach the same DeepSeek Harness action core",
   "license": "MIT",
   "type": "module",
   "main": "./index.js",
-  "exports": { ".": "./index.js", "./parity": "./lib/action-parity.mjs" },
-  "bin": { "dsh-action-parity": "./bin/dsh-action-parity.mjs" },
-  "files": [".codex-plugin/", ".mcp.json", "bin/", "cordis.patch.yml", "examples/", "index.js", "lib/", "mcp-server.mjs", "LICENSE", "README.md", "README.zh-CN.md", "SECURITY.md"],
-  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "exports": {
+    ".": "./index.js",
+    "./parity": "./lib/action-parity.mjs"
+  },
+  "bin": {
+    "dsh-action-parity": "./bin/dsh-action-parity.mjs"
+  },
+  "files": [
+    ".codex-plugin/",
+    ".mcp.json",
+    "bin/",
+    "cordis.patch.yml",
+    "examples/",
+    "index.js",
+    "lib/",
+    "mcp-server.mjs",
+    "LICENSE",
+    "README.md",
+    "README.zh-CN.md",
+    "SECURITY.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dsh": ">=0.1.2-alpha.4",
+      "node": ">=22",
+      "dshReleases": {
+        "0.1.2-alpha.4": "compatible",
+        "0.1.2-alpha.5": "compatible",
+        "0.1.2-rc.1": "compatible"
+      }
+    }
+  },
   "scripts": {
     "test": "node --test test/*.test.mjs",
     "check": "node scripts/check.mjs",
@@ -17,7 +48,21 @@
     "smoke:dsh": "node test/dsh-runtime-smoke.mjs",
     "smoke:web-loader": "node test/stock-web-loader-smoke.mjs"
   },
-  "engines": { "node": ">=22" },
-  "repository": { "type": "git", "url": "git+https://github.com/dongsheng123132/dsh-action-parity.git" },
-  "keywords": ["deepseek-harness", "dsh", "dsh-plugin", "action-parity", "action-id", "gui", "mcp", "cli"]
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dongsheng123132/dsh-action-parity.git"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "action-parity",
+    "action-id",
+    "gui",
+    "mcp",
+    "cli"
+  ]
 }
