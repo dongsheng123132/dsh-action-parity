@@ -1,5 +1,7 @@
 # DSH Action Parity
 
+作者 / 维护者：贺去病（贺方升 / Dosen）· [hequbing.com](https://www.hequbing.com)
+
 [![CI](https://github.com/dongsheng123132/dsh-action-parity/actions/workflows/ci.yml/badge.svg)](https://github.com/dongsheng123132/dsh-action-parity/actions/workflows/ci.yml)
 [![MIT 许可证](https://img.shields.io/github/license/dongsheng123132/dsh-action-parity)](LICENSE)
 [![Node.js 22+](https://img.shields.io/badge/Node.js-%E2%89%A522-339933?logo=nodedotjs&logoColor=white)](package.json)
